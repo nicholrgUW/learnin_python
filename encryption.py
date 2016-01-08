@@ -36,18 +36,10 @@ def caesar(plainText):
 
 # Encrypts plaintext using transposition cipher
 def trans(plainText):
-    oddChars = ''
-    evenChars = ''
-    i = 0
-    for ch in plainText:
-        if i % 2:
-            oddChars = oddChars + ch
-        else:
-            evenChars = evenChars + ch
-        i += 1
-
-    cipherText = oddChars + evenChars
-    return cipherText
+    # oddChars = plainText[1::2]
+    # evenChars = plainText[0::2]
+    # cipherText = oddChars + evenChars
+    return plainText[1::2] + plainText[0::2]
 
 
 # Encrypts plaintext using ASCII shift
@@ -65,20 +57,15 @@ def ascii_shift(plainText):
 def my_main():
     msg = input("Enter a message to encrypt: ")
     print('Which encryption do you want to use?')
-    choice = input('Enter 1 for random Caeser cipher, 2 for transposition, 3 for an ASCII shift: ')
-    badInput = True
-    if choice.isdigit():
-        int_choice = int(choice)
-        if int_choice > 0 and int_choice < 4:
-            badInput = False;
-    while badInput:
-        print('Invalid input - try again')
+
+    while True:
         choice = input('Enter 1 for random Caeser cipher, 2 for transposition, 3 for an ASCII shift: ')
         if choice.isdigit():
             int_choice = int(choice)
             if int_choice > 0 and int_choice < 4:
-                badInput = False;
-    cipherText = ''
+                break
+        print('Invalid input - try again')
+
     if choice == '1':
         cipherText = caesar(msg)
     elif choice == '2':
