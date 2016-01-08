@@ -11,18 +11,16 @@ def keyGen(alpha):
     return key
 
 
-# Encrypts plaintext using a random key and a Caeser cipher
+# Encrypts plaintext using a random key and a Caesar cipher
 def caesar(plainText):
     alphabet = "abcdefghijklmnopqrstuvwxyz"
-    key = keyGen("abcdefghijklmnopqrstuvwxyz")
+    key = keyGen(alphabet)
     print("Random key: ")
     print(alphabet)
     print(key)
 
-    plainText = plainText.lower()
-
     cipherText = ""
-    for ch in plainText:
+    for ch in plainText.lower():
         idx = alphabet.find(ch)
         if idx >= 0:
             cipherText += key[idx]
