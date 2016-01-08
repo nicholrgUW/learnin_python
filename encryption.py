@@ -1,5 +1,6 @@
 import random
 
+
 # Generates and returns a random key
 def keyGen(alpha):
     key = ""
@@ -55,10 +56,10 @@ def ascii_shift(plainText):
     cipherText = ''
     print("Shift: ", shift)
     for ch in plainText:
-
-        cipherText += chr(ord(ch)+shift)
+        cipherText += chr(ord(ch) + shift)
 
     return cipherText
+
 
 # Driver
 def my_main():
@@ -85,6 +86,14 @@ def my_main():
     else:
         cipherText = ascii_shift(msg)
     print('The encrypted message is: ', cipherText)
+
+    while True:
+        userContinue = input("Repeat? Enter y to repeat or q to quit: ")
+        if userContinue == 'y':
+            my_main()
+            break
+        elif userContinue == 'q':
+            break
 
 
 if __name__ == '__main__':
