@@ -36,9 +36,6 @@ def caesar(plainText):
 
 # Encrypts plaintext using transposition cipher
 def trans(plainText):
-    # oddChars = plainText[1::2]
-    # evenChars = plainText[0::2]
-    # cipherText = oddChars + evenChars
     return plainText[1::2] + plainText[0::2]
 
 
